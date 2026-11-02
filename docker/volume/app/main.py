@@ -10,5 +10,5 @@ def main():
     return print("Your shortened link is: ", short_link)
 
 
-if __name_="__main__":
+if __name_=="__main__":
     main()  
