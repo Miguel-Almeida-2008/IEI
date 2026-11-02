@@ -1,13 +1,15 @@
 services:
   webserver:
-    image: nginx:alpine:3.20
+    image: nginx:stable-alpine3.24-perl
     ports:
       - "8080:80"
     volumes:
-      - ./sites:/docker/volume/html
+      - ./volume/html:/usr/share/nginx/html
     environment:
       - TZ=Europe/Lisbon
     restart: unless-stopped
   app:
-    build: .  
-    container_name: my-python-app
+    build: .
+    container_name: python-app
+    volumes:
+      - ./volume/app:/docker/volume/app
