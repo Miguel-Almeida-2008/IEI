@@ -11,5 +11,7 @@ services:
   app:
     build: .
     container_name: python-app
+    stdin_open: true
+    tty: true
     volumes:
       - ./volume/app:/docker/volume/app
