@@ -1,11 +1,7 @@
-# Use an official Python runtime as a base image
-FROM python:3.9-slim
+FROM nginx:stable-alpine3.24-perl
 
-# Set the working directory inside the container
-WORKDIR /app
+RUN apk add python3 py3-pip
 
-# Copy the Python script into the container
-COPY app.py .
+COPY --chmod=755 ./start.sh /start.sh
 
-# Command to run when the container starts
-CMD ["python", "app.py"]   
+CMD ["/bin/sh", "/start.sh"]
