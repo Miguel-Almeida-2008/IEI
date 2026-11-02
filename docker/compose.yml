@@ -1,0 +1,13 @@
+services:
+  webserver:
+    image: nginx:alpine:3.20
+    ports:
+      - "8080:80"
+    volumes:
+      - ./sites:/docker/volume/html
+    environment:
+      - TZ=Europe/Lisbon
+    restart: unless-stopped
+  app:
+    build: .  
+    container_name: my-python-app
