@@ -2,20 +2,26 @@
 Files for IEI project
 
 ## Requirements
-Have docker installed and set-up
+On Linux:
+- Have docker installed and set-up
+- Add the VSCode plugin ``Dev Containers``
+
+On Windows:
+- Have docker and WSL installed and set-up
+- Have Docker Desktop working with WLS
+- Add the VSCode plugin ``Dev Containers``.
 
 ## How to run  
-go to /IEI/docker/ folder
-
+Go to ``/IEI/docker/`` folder
 
 run:
+- ``docker compose up -d --build && docker exec -it python-tester sh`` to start and enter the container
+- Inside the container: ``./runTests.sh`` to run the testes
 
+The linting reports will be in ``lintingReports.txt`` file.
 
-``docker compose up -d --build && docker attach python-app``
 
 ## when finished:
 run:
-
-
-``docker compose down``
+ - ``docker compose down``
 

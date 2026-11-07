@@ -1,17 +1,12 @@
 services:
-  webserver:
-    image: nginx:stable-alpine3.24-perl
-    ports:
-      - "8080:80"
-    volumes:
-      - ./volume/html:/usr/share/nginx/html
-    environment:
-      - TZ=Europe/Lisbon
-    restart: unless-stopped
-  app:
-    build: .
-    container_name: python-app
+  python-tester:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: python-tester
     stdin_open: true
     tty: true
     volumes:
-      - ./volume/app:/docker/volume/app
+      - type: bind
+        source: ../
+        target: /app/

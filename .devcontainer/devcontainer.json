@@ -1,0 +1,17 @@
+{
+  "name": "PythonTester",
+  "build": {
+    "context": "..",
+    "dockerfile": "../docker/Dockerfile"
+  },
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind",
+  //Add git extensions to the devcontainer
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mhutchie.git-graph"
+      ]
+    }
+  }
+}

@@ -1,7 +1,15 @@
 FROM nginx:stable-alpine3.24-perl
 
-RUN apk add python3 py3-pip
+#Install packages dependencies
+RUN apk add python3 py3-pip ruff git
 
-COPY --chmod=755 ./start.sh /start.sh
+#Install python requirements
+COPY ./src/app/requirements.txt /tmp/requirements.txt
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install -r /tmp/requirements.txt
 
-CMD ["/bin/sh", "/start.sh"]
+
+COPY --chmod=755 ./docker/start.sh /app/docker/start.sh
+
+CMD ["/bin/sh", "/app/docker/start.sh"]
