@@ -1,11 +1,17 @@
 {
   "name": "PythonTester",
-  "dockerComposeFile": [
-    "../docker/compose.yml",
-    "compose.dev.yml"
-  ],
-  "service": "python-tester",
-  "workspaceFolder": "/app/",
-  "shutdownAction": "stopCompose",
-  "overrideCommand": false
+  "build": {
+    "context": "..",
+    "dockerfile": "../docker/Dockerfile"
+  },
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind",
+  //Add git extensions to the devcontainer
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mhutchie.git-graph"
+      ]
+    }
+  }
 }

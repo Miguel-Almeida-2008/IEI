@@ -1,4 +1,0 @@
-services:
-  python-tester:
-    container_name: python-tester
-    command: ["tail", "-f", "/dev/null"]
