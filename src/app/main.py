@@ -4,7 +4,7 @@ import pyshorteners
 # create function
 def main():
     s = pyshorteners.Shortener()
-    while True:
+     while True:
         # ask if user wants to shorten the link or make it longer instead
         choice = input(
             "Type 0 if you want to shorten your link\nType 1 if you want to lengthen it instead\n---> "

@@ -10,6 +10,6 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install -r /tmp/requirements.txt
 
 
-COPY --chmod=755 ./start.sh /start.sh
+COPY --chmod=755 ./docker/start.sh /app/docker/start.sh
 
-CMD ["/bin/sh", "/app/start.sh"]
+CMD ["/bin/sh", "/app/docker/start.sh"]
