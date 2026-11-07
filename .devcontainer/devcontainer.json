@@ -1,0 +1,11 @@
+{
+  "name": "PythonTester",
+  "dockerComposeFile": [
+    "../docker/compose.yml",
+    "compose.dev.yml"
+  ],
+  "service": "python-tester",
+  "workspaceFolder": "/app/",
+  "shutdownAction": "stopCompose",
+  "overrideCommand": false
+}
