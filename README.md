@@ -15,7 +15,7 @@ On Windows:
 Go to ``/IEI/docker/`` folder
 
 run:
-- ``docker compose up -d --build && docker exec -it python-tester sh`` to start and enter the container
+- ``docker compose up -d --build`` to start the container and run the tests.
 - Inside the container: ``./runTests.sh`` to run the testes
 
 The linting reports will be in ``lintingReports.txt`` file.
