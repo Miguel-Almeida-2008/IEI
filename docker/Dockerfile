@@ -9,7 +9,6 @@ RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install -r /tmp/requirements.txt
 
-
-COPY --chmod=755 ./docker/start.sh /app/docker/start.sh
+WORKDIR  /app
 
 CMD ["/bin/sh", "/app/docker/start.sh"]

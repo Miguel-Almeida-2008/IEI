@@ -1,4 +1,4 @@
 #!/bin/sh
-
-chmod +x ./runTests.sh
-chmod +x ./scripts/ruff.sh
+sh /app/runTests.sh
+#chmod +x /app/runTests.sh
+#chmod +x /app/scripts/ruff.sh
