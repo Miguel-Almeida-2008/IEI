@@ -6,7 +6,10 @@ services:
     container_name: python-tester
     stdin_open: true
     tty: true
+    environment:
+      - DISPLAY=${GUI_DISPLAY}
     volumes:
       - type: bind
         source: ../
         target: /app/
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
