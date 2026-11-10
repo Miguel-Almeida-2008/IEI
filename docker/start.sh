@@ -1,4 +1,5 @@
 #!/bin/sh
-sh /app/runTests.sh
-#chmod +x /app/runTests.sh
-#chmod +x /app/scripts/ruff.sh
+
+#sh /app/runTests.sh
+
+python3 -m venv .venv && . /app/.venv/bin/activate && pip install -r /app/src/app/requirements.txt && python3 /app/src/app/main.py
