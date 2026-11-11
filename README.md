@@ -25,6 +25,8 @@ Files for IEI project
 - Write the name of the packages that need to be installed on the os in ``/IEI/src/app/alpine-packages.txt``, with the name to install the package on ``Alpine OS``, one in each line
 
 ## How to run
+In the file ``/IEI/docker/.env`` chose the OS you are using 
+
 Go to ``/IEI/docker/`` folder
 
 **On Linux:**
