@@ -8,15 +8,24 @@ s = pyshorteners.Shortener()
 
 
 # FUNÇÃO PARA COPIAR PARA A ÁREA DE TRANSFERÊNCIA
-def copiar_para_clipboard(link, btn_copiar):
+def copiar_para_clipboard(link):
     app.clipboard_clear()
     app.clipboard_append(link)
     # Altera temporariamente o texto do botão para dar feedback visual
-    btn_copiar.configure(text="Copied!", fg_color="green")
+    return app.clipboard_get()
+
+def clipboard_action(link, button):
+    copiar_para_clipboard(link)
+    button.configure(text="Copied!", fg_color="green"),
+
+
+
+def encurtar_link(link):
+    return s.tinyurl.short(link)
 
 
 # FUNÇÃO PARA ENCURTAR
-def executar_encurtamento(entry_widget, feedback_widget, janela):
+def menu_encurtamento(entry_widget, feedback_widget, janela):
     try:
         link = entry_widget.get().strip()
         if not link:
@@ -24,7 +33,7 @@ def executar_encurtamento(entry_widget, feedback_widget, janela):
                 text="Please paste a link first!", text_color="yellow"
             )
             return
-        novo_link = s.tinyurl.short(link)
+        novo_link = encurtar_link(link)
         feedback_widget.configure(
             text=f"Your shortened link is:\n{novo_link}", text_color="green"
         )
@@ -38,7 +47,7 @@ def executar_encurtamento(entry_widget, feedback_widget, janela):
 
         # Configura a ação do botão de copiar com o novo link
         janela.btn_copy.configure(
-            command=lambda: copiar_para_clipboard(novo_link, janela.btn_copy),
+            command=lambda: clipboard_action(novo_link, janela.btn_copy),
             text="Copy Link",
             fg_color="#1f538d",
         )
@@ -49,8 +58,12 @@ def executar_encurtamento(entry_widget, feedback_widget, janela):
         )
 
 
+def alongar_link(link):
+    return s.tinyurl.expand(link)
+
+
 # FUNÇÃO PARA ALONGAR
-def executar_alongamento(entry_widget, feedback_widget, janela):
+def menu_alongamento(entry_widget, feedback_widget, janela):
     try:
         link = entry_widget.get().strip()
         if not link:
@@ -58,7 +71,7 @@ def executar_alongamento(entry_widget, feedback_widget, janela):
                 text="Please paste a link first!", text_color="yellow"
             )
             return
-        novo_link = s.tinyurl.expand(link)
+        novo_link = alongar_link(link)
         feedback_widget.configure(
             text=f"Your lengthened link is:\n{novo_link}", text_color="green"
         )
@@ -72,7 +85,7 @@ def executar_alongamento(entry_widget, feedback_widget, janela):
 
         # Configura a ação do botão de copiar com o novo link
         janela.btn_copy.configure(
-            command=lambda: copiar_para_clipboard(novo_link, janela.btn_copy),
+            command=lambda: clipboard_action(novo_link, janela.btn_copy),
             text="Copy Link",
             fg_color="#1f538d",
         )
@@ -110,7 +123,7 @@ def main():
         button1 = ctk.CTkButton(
             janela_encurtamento,
             text="Shorten link",
-            command=lambda: executar_encurtamento(
+            command=lambda: menu_encurtamento(
                 entry, feedback_janela, janela_encurtamento
             ),
         )
@@ -135,9 +148,7 @@ def main():
         button2 = ctk.CTkButton(
             janela_alongar,
             text="Lengthen link",
-            command=lambda: executar_alongamento(
-                entry, feedback_janela, janela_alongar
-            ),
+            command=lambda: menu_alongamento(entry, feedback_janela, janela_alongar),
         )
         button2.pack(pady=10)
     else:
@@ -166,5 +177,5 @@ button.pack(pady=20)
 
 feedback = ctk.CTkLabel(app, text="")
 feedback.pack(pady=10)
-
-app.mainloop()
+if __name__ == "__main__":
+    app.mainloop()

@@ -17,29 +17,33 @@ Files for IEI project
         - When a Windows Defender window pops up, click **Allow**
 
 ## How to use
-- Put the python app you want to run in ``/pythonTester/src/app/`` with the name ``main.py``
+- Put the python app you want to run in ``/pythonTester/src/app/`` with the name ``main.py`` and the python app to run the tests in ```/pythonTester/src/app/`` with the name ``tests.py``
 - Write the name of the packages you need to import in ``/IEI/src/app/requirements.txt``, one in each line
 - Write the name of the packages that need to be installed on the os in ``/IEI/src/app/alpine-packages.txt``, with the name to install the package on **Alpine OS**, one in each line
 
 ## How to run
-In the file ``/IEI/docker/.env`` chose the OS you are using 
+**If your app needs display access**
+- In the file ``/IEI/docker/.env`` chose the OS you are using
+**On Linux**
+- run ``xhost +local:`` to allow the container to connect to your X11 server.
+**On windows**
+- Start **XLaunch** and select next on every window and finish in the last one
+
 
 Go to ``/IEI/docker/`` folder
 
 **On Linux:**
-- run ``xhost +local:`` to allow the container to connect to your X11 server.
 - run ``docker compose up -d --build`` to start the container, run the tests and if everything is working start the program.
-- run ``docker attach python-tester`` if you need to interact with the program console
+- run ``docker exec -it python-tester sh`` to enter into the container
 
 **On Windows:**
 - Start **docker desktop** and wait for it to initialize
-- Start **XLaunch** and select next on every window and finish in the last one
 - run ``docker compose -d --build`` to start the container, run the tests and if everything is working start the program.
-- run ``docker attach python-tester`` if you need to interact with the program console
+- run ``docker exec -it python-tester sh`` to enter into the container
 
-If the app doesn't execute and if any errors were found they will be listed in ``lintingReports.txt``.
+On the container run ``sh runTests.sh`` to run the ``tests.py`` file and to use ruff automaticly
 
-The linting reports will be in ``/IEI/lintingReports.txt`` file.
+The linting reports and any errors that the ``tests.py`` app encounter will be in ``/IEI/lintingReports.txt`` file on your computer or in ``/app/lintingReports.txt`` inside the docker.
 
 
 ## when finished:

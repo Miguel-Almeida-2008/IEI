@@ -1,2 +1,3 @@
 pyshorteners
 customtkinter
+pytest
