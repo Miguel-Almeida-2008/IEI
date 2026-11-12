@@ -9,7 +9,7 @@ RUN apk add python3 ruff py3-pip git ttf-dejavu $(tr '\n' ' ' < /tmp/alpine-pack
 COPY ./src/app/requirements.txt /tmp/requirements.txt
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
-RUN pip install -r /tmp/requirements.txt
+RUN pip install $(tr '\n' ' ' < /tmp/requirements.txt)
 
 WORKDIR  /app
 
