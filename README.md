@@ -4,12 +4,12 @@ Files for IEI project
 ## Requirements
 **On Linux:**
 - Have docker installed and set-up
-- Add the VSCode plugin ``Dev Containers``
+- Add the VSCode plugin **Dev Containers**
 
 **On Windows:**
 - Have **docker and WSLVcXsrv** installed and set-up
 - Have Docker Desktop working with WLS
-- Add the VSCode plugin ``Dev Containers``
+- Add the VSCode plugin **Dev Containers**
 
 - If you want to run a app with GUI you will need to install VcXsrv:
     - After you install VcXsrv run it for the first time
@@ -19,7 +19,7 @@ Files for IEI project
 ## How to use
 - Put the python app you want to run in ``/pythonTester/src/app/`` with the name ``main.py``
 - Write the name of the packages you need to import in ``/IEI/src/app/requirements.txt``, one in each line
-- Write the name of the packages that need to be installed on the os in ``/IEI/src/app/alpine-packages.txt``, with the name to install the package on ``Alpine OS``, one in each line
+- Write the name of the packages that need to be installed on the os in ``/IEI/src/app/alpine-packages.txt``, with the name to install the package on **Alpine OS**, one in each line
 
 ## How to run
 In the file ``/IEI/docker/.env`` chose the OS you are using 
