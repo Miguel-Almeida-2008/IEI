@@ -13,10 +13,7 @@ Files for IEI project
 
 - If you want to run a app with GUI you will need to install VcXsrv:
     - After you install VcXsrv run it for the first time
-        - Select Multiple windows and set the Display number to 0. Click Next
-        - Select Start no client. Click Next
-        - Check the box for **Disable access control**
-        - Click Next, then Finish.
+        - Click next on every window and finish on the last one
         - When a Windows Defender window pops up, click **Allow**
 
 ## How to use
@@ -35,11 +32,12 @@ Go to ``/IEI/docker/`` folder
 - run ``docker attach python-tester`` if you need to interact with the program console
 
 **On Windows:**
-- Start docker desktop and wait for it to initialize
+- Start **docker desktop** and wait for it to initialize
+- Start **XLaunch** and select next on every window and finish in the last one
 - run ``docker compose -d --build`` to start the container, run the tests and if everything is working start the program.
 - run ``docker attach python-tester`` if you need to interact with the program console
 
-If any errors were found they will be listed in ``lintingReports.txt``.
+If the app doesn't execute and if any errors were found they will be listed in ``lintingReports.txt``.
 
 The linting reports will be in ``/IEI/lintingReports.txt`` file.
 
