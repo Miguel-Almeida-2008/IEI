@@ -7,11 +7,11 @@ Files for IEI project
 - Add the VSCode plugin **Dev Containers**
 
 **On Windows:**
-- Have **docker and WSLVcXsrv** installed and set-up
+- Have **docker and WSL** installed and set-up
 - Have Docker Desktop working with WLS
 - Add the VSCode plugin **Dev Containers**
 
-- If you want to run a app with GUI you will need to install VcXsrv:
+- If you want to run a app with GUI you will need to install **VcXsrv**:
     - After you install VcXsrv run it for the first time
         - Click next on every window and finish on the last one
         - When a Windows Defender window pops up, click **Allow**
