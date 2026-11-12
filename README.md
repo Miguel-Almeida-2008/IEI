@@ -9,12 +9,11 @@ Files for IEI project
 **On Windows:**
 - Have **docker and WSL** installed and set-up
 - Have Docker Desktop working with WLS
-- Add the VSCode plugin **Dev Containers**
-
 - If you want to run a app with GUI you will need to install **VcXsrv**:
     - After you install VcXsrv run it for the first time
         - Click next on every window and finish on the last one
         - When a Windows Defender window pops up, click **Allow**
+- Add the VSCode plugin **Dev Containers** (Optional)
 
 ## How to use
 - Put the python app you want to run in ``/pythonTester/src/app/`` with the name ``main.py`` and the python app to run the tests in ``/pythonTester/src/app/`` with the name ``tests.py``
