@@ -17,7 +17,7 @@ Files for IEI project
         - When a Windows Defender window pops up, click **Allow**
 
 ## How to use
-- Put the python app you want to run in ``/pythonTester/src/app/`` with the name ``main.py`` and the python app to run the tests in ```/pythonTester/src/app/`` with the name ``tests.py``
+- Put the python app you want to run in ``/pythonTester/src/app/`` with the name ``main.py`` and the python app to run the tests in ``/pythonTester/src/app/`` with the name ``tests.py``
 - Write the name of the packages you need to import in ``/IEI/src/app/requirements.txt``, one in each line
 - Write the name of the packages that need to be installed on the os in ``/IEI/src/app/alpine-packages.txt``, with the name to install the package on **Alpine OS**, one in each line
 
